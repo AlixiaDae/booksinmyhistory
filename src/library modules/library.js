@@ -4,7 +4,6 @@ export default class Library {
     }
 
     getBooks() {
-        console.log(this.books)
         return this.books
     }
 
