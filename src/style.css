@@ -10,6 +10,7 @@ body {
     height: calc(100vh - 15px);
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 nav {
@@ -46,6 +47,54 @@ h1 {
     box-shadow: 2px 2px 1px rgb(202, 193, 179);
 }
 
+form {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+legend {
+    font-size: 25px;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    align-items: center;
+    gap: 5px;
+    padding: 0px 10px 15px 10px;
+}
+
+fieldset > :not(:nth-child(4)) {
+    flex-direction: column;
+}
+
+fieldset > :not(:nth-child(4)),
+fieldset > :nth-child(4),
+fieldset > :nth-child(4) > div {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+fieldset > :nth-child(4) {
+    height: 30px;
+}
+
+fieldset > :last-child > div {
+    margin-top: 5px;
+}
+
+input[type='radio'] {
+    margin: 0;
+}
+
+#submit-new-book {
+    height: 25px;
+}
+
 .shelf {
     display: flex;
     gap: 5px;
@@ -54,8 +103,8 @@ h1 {
 }
 
 .bookcard {
-    height: 200px;
-    width: 150px;
+    height: 250px;
+    width: 200px;
     border: 1px solid;
     border-radius: 10px;
     padding: 5px;
