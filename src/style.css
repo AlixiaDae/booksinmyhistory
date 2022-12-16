@@ -2,18 +2,55 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    
 }
 
 .main-body { 
     background-color: rgb(252, 242, 228);
-    height: 100vh;
+    padding: 5px;
+    height: calc(100vh - 15px);
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav > div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav > div > :first-child {
+    height: 50px;
+}
+
+h1 {
+    font-size: 40px;
+    margin: 0;
+    width: 300px;
+}
+
+#add-book {
+    height: 45px;
+    width: 130px;
+    border-style: none;
+    border-radius: 10px;
+    background-color: red;
+    color: whitesmoke;
+    font-size: 20px;
+    box-shadow: 2px 2px 1px rgb(202, 193, 179);
 }
 
 .shelf {
     display: flex;
     gap: 5px;
-    padding: 5px;
+    margin-top: 5px;
+    justify-content: center;
 }
 
 .bookcard {
@@ -30,4 +67,8 @@ body {
 
 .bookcard > p {
     margin: 5px;
+}
+
+#add-book:hover {
+    background-color: rgb(211, 4, 4);
 }
