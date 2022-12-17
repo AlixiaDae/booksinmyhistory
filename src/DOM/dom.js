@@ -15,12 +15,8 @@ const DOM = (() => {
     // console.log(library.constainsBook(bookThree))
     // library.getBooks()
 
-    const mainBody = document.createElement('div')
-    mainBody.classList.add('main-body')
-    document.body.appendChild(mainBody)
-
     const navBar = document.createElement('nav')
-    mainBody.appendChild(navBar)
+    document.body.appendChild(navBar)
 
     const logoWrapper = document.createElement('div')
     navBar.appendChild(logoWrapper)
@@ -33,16 +29,24 @@ const DOM = (() => {
     siteName.textContent = 'My Alexandria'
     logoWrapper.appendChild(siteName)
 
+    const subHeaderImage = document.createElement('div')
+    subHeaderImage.classList.add('sub-header-image')
+    document.body.appendChild(subHeaderImage)
+
+    //main body to append content
+    const mainBody = document.createElement('div')
+    mainBody.classList.add('main-body')
+    document.body.appendChild(mainBody)
+
     const addBookBtn = document.createElement('button')
     addBookBtn.id = 'add-book'
     addBookBtn.textContent = '+ Add Book'
-    navBar.appendChild(addBookBtn)
+    mainBody.appendChild(addBookBtn)
 
     //Form for adding new books
     const addBookForm = document.createElement('form')
-    addBookForm.style.display = 'none'
     mainBody.appendChild(addBookForm)
-    
+
     const addBookField = document.createElement('fieldset')
     addBookForm.appendChild(addBookField)
 
@@ -139,13 +143,7 @@ const DOM = (() => {
     })
 
 
-    addBookBtn.addEventListener('click', () => {
-        if(addBookForm.style.display === 'flex') {
-            addBookForm.style.display = 'none'
-        } else {
-            addBookForm.style.display = 'flex'
-        }
-    })
+    addBookBtn.addEventListener('click', showForm)
 
     const shelf = document.createElement('div')
     shelf.classList.add('shelf')
@@ -169,7 +167,15 @@ const DOM = (() => {
             bookAuthor.textContent = library.getBooks()[i].author
         }
         bookCard.appendChild(bookAuthor)
+
+        bookCard.addEventListener('click', () => {
+
+        })
     }}
+
+    function showForm() {
+        addBookForm.classList.toggle('active')
+    }
 
     createBookCard()
 

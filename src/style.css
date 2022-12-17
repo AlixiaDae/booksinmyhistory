@@ -2,15 +2,8 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-}
-
-.main-body { 
-    background-color: rgb(252, 242, 228);
-    padding: 5px;
-    height: calc(100vh - 15px);
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 nav {
@@ -18,6 +11,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: -2px -2px 2px rgb(189, 188, 188) inset;
 }
 
 nav > div {
@@ -36,6 +30,25 @@ h1 {
     width: 300px;
 }
 
+.main-body { 
+    background-color: rgb(252, 242, 228);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    flex-grow: 1;
+    /* align-items: center; */
+}
+
+.sub-header-image {
+    background-image: url('./images/inaki-del-olmo-NIJuEQw0RKg-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+}
+
 #add-book {
     height: 45px;
     width: 130px;
@@ -51,6 +64,11 @@ form {
     display: flex;
     text-align: center;
     justify-content: center;
+    height: 0;
+    transition: height 1s ease;
+    overflow: hidden;
+    background-color: rgb(226, 219, 209);
+    /* width: 1100px; */
 }
 
 legend {
@@ -61,9 +79,12 @@ fieldset {
     display: flex;
     flex-direction: column;
     width: 250px;
+    height: 190px;
     align-items: center;
     gap: 5px;
     padding: 0px 10px 15px 10px;
+    background-color: rgb(252, 242, 228);
+    border-radius: 10px;
 }
 
 fieldset > :not(:nth-child(4)) {
@@ -95,11 +116,19 @@ input[type='radio'] {
     height: 25px;
 }
 
+form.active {
+    height: 220px;
+}
+
 .shelf {
-    display: flex;
-    gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(5,212px);
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-auto-flow: row;
     margin-top: 5px;
     justify-content: center;
+    align-items: center;
 }
 
 .bookcard {
