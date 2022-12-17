@@ -1,7 +1,8 @@
 import '../style.css'
-import Library from '../library modules/library'
+import Library from '../library modules/lib'
 import Book from '../library modules/Book'
 import bookLogo from '../images/open-book.png'
+import bookBackground from '../images/inaki-del-olmo-NIJuEQw0RKg-unsplash.jpg'
 
 const DOM = (() => {
     let library = new Library()
@@ -29,7 +30,8 @@ const DOM = (() => {
     siteName.textContent = 'My Alexandria'
     logoWrapper.appendChild(siteName)
 
-    const subHeaderImage = document.createElement('div')
+    const subHeaderImage = document.createElement('img')
+    subHeaderImage.src = bookBackground
     subHeaderImage.classList.add('sub-header-image')
     document.body.appendChild(subHeaderImage)
 
@@ -139,6 +141,7 @@ const DOM = (() => {
         author.value = ''
         physicalRadio.checked = false
         onlineRadio.checked = false
+        addBookForm.classList.remove('active')
         createBookCard()
     })
 
@@ -168,9 +171,27 @@ const DOM = (() => {
         }
         bookCard.appendChild(bookAuthor)
 
-        bookCard.addEventListener('click', () => {
+        const bookRemoveBtn = document.createElement('button')
+        bookRemoveBtn.style.display = 'none'
+        bookRemoveBtn.id = 'remove-book'
+        bookRemoveBtn.textContent = 'Remove'
+        bookCard.appendChild(bookRemoveBtn)
 
+        bookCard.addEventListener('mouseenter', () => {
+            bookRemoveBtn.style.display = 'block'
         })
+
+        bookCard.addEventListener('mouseleave', () => {
+            bookRemoveBtn.style.display = 'none'
+        })
+        
+        const bookName = library.getBooks()[i].title
+
+        bookRemoveBtn.addEventListener('click', () => {
+            bookCard.remove()
+            library.removeBook(bookName)
+        })
+
     }}
 
     function showForm() {

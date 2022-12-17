@@ -16,9 +16,9 @@ export default class Library {
         this.books.push(newBook)
     }
 
-    removeBook(newBook) {
-        let bookToBeDeleted = this.books.indexOf(newBook)
-        this.books.splice(bookToBeDeleted, 1)
+    removeBook(bookTitle) {
+        const bookToDelete = this.books.find(book => book.title === bookTitle)
+        return this.books.splice(this.books.indexOf(bookToDelete), 1)
     }
 
 }
